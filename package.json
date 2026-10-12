@@ -6,7 +6,7 @@
 	"browser": "out/CLI/browser.js",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/polytoria-ts/polytoria-ts.git"
+		"url": "git+https://github.com/polytoria-ts/polytoria-ts.git"
 	},
 	"bin": {
 		"ptsc": "out/CLI/cli.js"
