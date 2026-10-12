@@ -1,6 +1,6 @@
+import { RojoResolver } from "@polytoria-ts/pojo-resolver";
 import { renderAST } from "@roblox-ts/luau-ast";
 import { PathTranslator } from "@roblox-ts/path-translator";
-import { RojoResolver } from "@polytoria-ts/pojo-resolver";
 import { PATH_SEP, pathJoin, VirtualFileSystem } from "Project/classes/VirtualFileSystem";
 import { validateCompilerOptions } from "Project/functions/validateCompilerOptions";
 import { getCustomPreEmitDiagnostics } from "Project/util/getCustomPreEmitDiagnostics";

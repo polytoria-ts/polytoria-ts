@@ -318,8 +318,6 @@ it("keeps server import restrictions across project references", () => {
 	fixture.project("shared");
 	fixture.project("game", ["shared"]);
 	const rojo = fs.readJsonSync(fixture.file("default.project.json"));
-	console.log(rojo);
-	console.log("iota");
 	delete rojo.tree.Hidden.shared;
 	rojo.tree.ServerHidden = { $className: "ServerHidden", shared: { $path: "out/shared" } };
 	fixture.json("default.project.json", rojo);

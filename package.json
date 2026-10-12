@@ -1,6 +1,6 @@
 {
 	"name": "polytoria-ts",
-	"version": "3.0.3",
+	"version": "3.0.4",
 	"description": "A TypeScript-to-Luau Compiler for Polytoria :)",
 	"main": "out/CLI/index.js",
 	"browser": "out/CLI/browser.js",

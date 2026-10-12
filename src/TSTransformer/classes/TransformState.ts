@@ -1,6 +1,6 @@
+import { RbxPath, RbxPathParent, RojoResolver } from "@polytoria-ts/pojo-resolver";
 import luau, { render, RenderState, renderStatements, solveTempIds } from "@roblox-ts/luau-ast";
 import { PathTranslator } from "@roblox-ts/path-translator";
-import { RbxPath, RbxPathParent, RojoResolver } from "@polytoria-ts/pojo-resolver";
 import path from "path";
 import { PARENT_FIELD, ProjectType } from "Shared/constants";
 import { errors, warnings } from "Shared/diagnostics";

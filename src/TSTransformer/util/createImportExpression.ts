@@ -1,5 +1,5 @@
-import luau from "@roblox-ts/luau-ast";
 import { FileRelation, NetworkType, RbxPath, RbxPathParent, RbxType, RojoResolver } from "@polytoria-ts/pojo-resolver";
+import luau from "@roblox-ts/luau-ast";
 import path from "path";
 import { NODE_MODULES, PARENT_FIELD, ProjectType } from "Shared/constants";
 import { errors } from "Shared/diagnostics";

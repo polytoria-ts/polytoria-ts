@@ -1,5 +1,5 @@
-import { PathTranslator } from "@roblox-ts/path-translator";
 import { RojoResolver } from "@polytoria-ts/pojo-resolver";
+import { PathTranslator } from "@roblox-ts/path-translator";
 import path from "path";
 import { ProjectData } from "Project";
 import { errors } from "Shared/diagnostics";

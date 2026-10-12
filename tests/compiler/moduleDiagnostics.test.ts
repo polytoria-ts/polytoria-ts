@@ -1,6 +1,6 @@
 import fs from "fs-extra";
 import { ProjectType } from "Shared/constants";
-import { errors, getDiagnosticId, warnings } from "Shared/diagnostics";
+import { errors, getDiagnosticId } from "Shared/diagnostics";
 import { DiagnosticError } from "Shared/errors/DiagnosticError";
 import ts from "typescript";
 
