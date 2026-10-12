@@ -19,3 +19,4 @@
 
 ## How do I use this?
 See Pojo's npm page ([here](https://www.npmjs.com/package/@polytoria-ts/pojo)). It will guide you through project creation.
+
