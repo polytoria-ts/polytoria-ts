@@ -1,4 +1,4 @@
-import { RojoResolver } from "@roblox-ts/rojo-resolver";
+import { RojoResolver } from "@polytoria-ts/pojo-resolver";
 import fs from "fs-extra";
 import path from "path";
 import { DiagnosticError } from "Shared/errors/DiagnosticError";

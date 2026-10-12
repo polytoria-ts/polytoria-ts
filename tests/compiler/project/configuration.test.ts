@@ -128,16 +128,15 @@ it("explains Rojo mappings that point into the source directory", () => {
 });
 
 it.each([
-	["ServerStorage", "server-only or client-only"],
-	["StarterGui", "server-only or client-only"],
-	["PluginDebugService", "isolated"],
+	["ServerHidden", "server-only or client-only"],
+	["PlayerGUI", "server-only or client-only"],
 ])("rejects runtime libraries under %s", (container, message) => {
 	fixture.project("game");
 	fixture.json("default.project.json", {
 		name: "restricted",
 		tree: {
 			$className: "DataModel",
-			ReplicatedStorage: { $className: "ReplicatedStorage", game: { $path: "out/game" } },
+			Hidden: { $className: "Hidden", game: { $path: "out/game" } },
 			[container]: { $className: container, include: { $path: "include" } },
 		},
 	});

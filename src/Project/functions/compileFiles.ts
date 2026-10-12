@@ -1,6 +1,6 @@
+import { NetworkType, RbxPath, RojoResolver } from "@polytoria-ts/pojo-resolver";
 import { renderAST } from "@roblox-ts/luau-ast";
 import { PathTranslator } from "@roblox-ts/path-translator";
-import { NetworkType, RbxPath, RojoResolver } from "@roblox-ts/rojo-resolver";
 import fs from "fs-extra";
 import path from "path";
 import { checkFileName } from "Project/functions/checkFileName";

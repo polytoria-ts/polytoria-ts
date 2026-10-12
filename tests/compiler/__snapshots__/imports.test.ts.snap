@@ -30,7 +30,7 @@ return {
 
 exports[`imports a package described by an ambient module declaration 1`] = `
 "local TS = _G[script]
-local value = TS.import(script, script.Parent, "include", "node_modules", "@rbxts", "example").value
+local value = TS.import(script, script.Parent, "include", "node_modules", "@polytoria-ts", "example").value
 return {
 	value = value,
 }
@@ -39,7 +39,7 @@ return {
 
 exports[`imports a scoped dependency from a package 1`] = `
 "local TS = _G[script]
-local value = TS.import(script, TS.getModule(script, "@rbxts", "example")).value
+local value = TS.import(script, TS.getModule(script, "@polytoria-ts", "example")).value
 local result = value
 return {
 	result = result,
@@ -57,8 +57,8 @@ return nil
 `;
 
 exports[`preserves unmarked import-equals side effects with noCheck (verbatimModuleSyntax: true) 1`] = `
-"local TS = require(game:GetService("ReplicatedStorage"):WaitForChild("include"):WaitForChild("RuntimeLib"))
-TS.import(script, game:GetService("ReplicatedStorage"), "game", "shape")
+"local TS = require(game.Hidden:WaitChild("include"):WaitChild("RuntimeLib"))
+TS.import(script, game.Hidden, "game", "shape")
 local value = {
 	value = 42,
 }
@@ -68,7 +68,7 @@ return nil
 `;
 
 exports[`uses relative imports within an isolated game container 1`] = `
-"local TS = require(game.ReplicatedStorage:WaitChild("include"):WaitChild("RuntimeLib"))
+"local TS = require(game.Hidden:WaitChild("include"):WaitChild("RuntimeLib"))
 local value = TS.import(script, script, "value").value
 print(value)
 return nil

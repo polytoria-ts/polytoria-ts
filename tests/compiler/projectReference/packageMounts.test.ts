@@ -39,17 +39,17 @@ it("prefers an explicit virtual mount over a real-path mount", () => {
 	installPackage();
 	fixture.rojo({ node_modules: modules("node_modules/@rbxts/probe") });
 	const rojo = fs.readJsonSync(fixture.file("default.project.json"));
-	rojo.tree.ServerStorage = { $className: "ServerStorage", node_modules: modules(store) };
+	rojo.tree.ServerHidden = { $className: "ServerHidden", node_modules: modules(store) };
 	fixture.json("default.project.json", rojo);
 
 	expectSuccess(fixture.createBuild().build());
-	expect(fixture.read("out/game/init.luau")).toContain('game.ReplicatedStorage, "node_modules"');
+	expect(fixture.read("out/game/init.luau")).toContain('game.Hidden, "node_modules"');
 });
 
 it("still rejects server-only modules resolved through a real path", () => {
 	installPackage();
 	const rojo = fs.readJsonSync(fixture.file("default.project.json"));
-	rojo.tree.ServerStorage = { $className: "ServerStorage", node_modules: modules(store) };
+	rojo.tree.ServerHidden = { $className: "ServerHidden", node_modules: modules(store) };
 	fixture.json("default.project.json", rojo);
 
 	const result = fixture.createBuild().build();

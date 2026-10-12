@@ -73,8 +73,8 @@ export class ReferenceFixture {
 			name: "references",
 			tree: {
 				$className: "DataModel",
-				ReplicatedStorage: {
-					$className: "ReplicatedStorage",
+				Hidden: {
+					$className: "Hidden",
 					include: { $path: "include" },
 					...Object.fromEntries([...this.projects].map(name => [name, { $path: `out/${name}` }])),
 					...mappings,

@@ -174,7 +174,7 @@ it.each([undefined, ["../types"], ["../node_modules/incorrect-scope"]])(
 			fixture.json("base.json", base);
 		}
 
-		expect(() => fixture.createBuild()).toThrow(/"typeRoots" must contain a node_modules\/@rbxts directory/);
+		expect(() => fixture.createBuild()).toThrow(/"typeRoots" must contain a node_modules\/@polytoria-ts directory/);
 	},
 );
 

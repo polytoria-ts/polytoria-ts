@@ -210,10 +210,10 @@ export function run() {
 	fixture.write("world/src/settings.json", '{ "fog": 100 }\n');
 
 	const rojo = fs.readJsonSync(fixture.file("default.project.json"));
-	delete rojo.tree.ReplicatedStorage.game;
-	delete rojo.tree.ReplicatedStorage.server;
-	rojo.tree.ServerScriptService = {
-		$className: "ServerScriptService",
+	delete rojo.tree.Hidden.game;
+	delete rojo.tree.Hidden.server;
+	rojo.tree.ScriptService = {
+		$className: "ScriptService",
 		main: { $path: "main.server.luau" },
 		game: { $path: "out/game" },
 		server: { $path: "out/server" },

@@ -63,21 +63,30 @@ it("imports a local module in VirtualProject without project references", () => 
 
 it("imports a package described by an ambient module declaration", () => {
 	const project = createTestProject();
-	project.vfs.writeFile("/src/ambient.d.ts", 'declare module "@rbxts/example" { export const value: number; }');
-	project.vfs.writeFile("/node_modules/@rbxts/example/index.d.ts", "export declare const value: number;");
-	project.setMapping("/node_modules/@rbxts/example/index.d.ts", "/node_modules/@rbxts/example/init.luau");
+	project.vfs.writeFile(
+		"/src/ambient.d.ts",
+		'declare module "@polytoria-ts/example" { export const value: number; }',
+	);
+	project.vfs.writeFile("/node_modules/@polytoria-ts/example/index.d.ts", "export declare const value: number;");
+	project.setMapping(
+		"/node_modules/@polytoria-ts/example/index.d.ts",
+		"/node_modules/@polytoria-ts/example/init.luau",
+	);
 
-	const output = project.compileSource('import { value } from "@rbxts/example"; export { value };');
+	const output = project.compileSource('import { value } from "@polytoria-ts/example"; export { value };');
 
 	expect(output).toMatchSnapshot();
 });
 
 it("imports a scoped dependency from a package", () => {
 	const project = createTestProject({ type: ProjectType.Package });
-	project.vfs.writeFile("/node_modules/@rbxts/example/index.d.ts", "export declare const value: number;");
-	project.setMapping("/node_modules/@rbxts/example/index.d.ts", "/node_modules/@rbxts/example/init.luau");
+	project.vfs.writeFile("/node_modules/@polytoria-ts/example/index.d.ts", "export declare const value: number;");
+	project.setMapping(
+		"/node_modules/@polytoria-ts/example/index.d.ts",
+		"/node_modules/@polytoria-ts/example/init.luau",
+	);
 
-	const output = project.compileSource('import { value } from "@rbxts/example"; export const result = value;');
+	const output = project.compileSource('import { value } from "@polytoria-ts/example"; export const result = value;');
 
 	expect(output).toMatchSnapshot();
 });
@@ -156,8 +165,8 @@ it("uses relative imports within an isolated game container", () => {
 			name: "isolated",
 			tree: {
 				$className: "DataModel",
-				ReplicatedStorage: { $className: "ReplicatedStorage", include: { $path: "include" } },
-				StarterGui: { $className: "StarterGui", game: { $path: "out/game" } },
+				Hidden: { $className: "Hidden", include: { $path: "include" } },
+				PlayerGUI: { $className: "PlayerGUI", game: { $path: "out/game" } },
 			},
 		});
 		fixture.write("game/src/value.ts", "export const value = 7;");

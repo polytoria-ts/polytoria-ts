@@ -1,5 +1,5 @@
 import luau from "@roblox-ts/luau-ast";
-import { FileRelation, NetworkType, RbxPath, RbxPathParent, RbxType, RojoResolver } from "@roblox-ts/rojo-resolver";
+import { FileRelation, NetworkType, RbxPath, RbxPathParent, RbxType, RojoResolver } from "@polytoria-ts/pojo-resolver";
 import path from "path";
 import { NODE_MODULES, PARENT_FIELD, ProjectType } from "Shared/constants";
 import { errors } from "Shared/diagnostics";
@@ -191,6 +191,7 @@ function getProjectImportParts(
 			return [luau.none()];
 		}
 
+		// console.log(`${sourceRbxPath} to ${moduleRbxPath} is ${state.rojoResolver.getFileRelation(sourceRbxPath, moduleRbxPath)}`);
 		const fileRelation = state.rojoResolver.getFileRelation(sourceRbxPath, moduleRbxPath);
 		if (fileRelation === FileRelation.OutToOut || fileRelation === FileRelation.InToOut) {
 			return getAbsoluteImport(moduleRbxPath);

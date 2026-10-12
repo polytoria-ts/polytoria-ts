@@ -12,7 +12,7 @@ function getType(typeChecker: ts.TypeChecker, node: ts.Node) {
 	return typeChecker.getTypeAtLocation(skipUpwards(node));
 }
 
-const TYPES_NOTICE = "\nYou may need to update your @rbxts/compiler-types!";
+const TYPES_NOTICE = "\nYou may need to update your @polytoria-ts/compiler-types!";
 
 export const SYMBOL_NAMES = {
 	globalThis: "globalThis",

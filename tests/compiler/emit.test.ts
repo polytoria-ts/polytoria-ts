@@ -14,7 +14,7 @@ it("emits the compiler version header by default", () => {
 	const project = createTestProject(DEFAULT_PROJECT_OPTIONS);
 	const output = project.compileSource("print(1);");
 
-	expect(output).toBe(`-- Compiled with roblox-ts v${COMPILER_VERSION}\nprint(1)\nreturn nil\n`);
+	expect(output).toBe(`-- Compiled with polytoria-ts v${COMPILER_VERSION}\nprint(1)\nreturn nil\n`);
 });
 
 it("formats JSDoc comments without delimiters or gutters", () => {
@@ -95,7 +95,7 @@ it("places Luau directives before the compiler header", () => {
 
 	const projectWithHeader = createTestProject({ noCompilerHeader: false });
 	expect(projectWithHeader.compileSource(source)).toBe(
-		`--!strict\n--!native\n-- Compiled with roblox-ts v${COMPILER_VERSION}\nlocal value = 1\nreturn {\n\tvalue = value,\n}\n`,
+		`--!strict\n--!native\n-- Compiled with polytoria-ts v${COMPILER_VERSION}\nlocal value = 1\nreturn {\n\tvalue = value,\n}\n`,
 	);
 });
 

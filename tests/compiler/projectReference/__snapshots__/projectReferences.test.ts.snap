@@ -2,15 +2,15 @@
 
 exports[`builds a reference chain in dependency order and reuses unchanged output 1`] = `
 {
-  "game": "local TS = require(game.ReplicatedStorage:WaitChild("include"):WaitChild("RuntimeLib"))
-local answer = TS.import(script, game.ReplicatedStorage, "shared").answer
+  "game": "local TS = require(game.Hidden:WaitChild("include"):WaitChild("RuntimeLib"))
+local answer = TS.import(script, game.Hidden, "shared").answer
 local result = answer()
 return {
 	result = result,
 }
 ",
-  "shared": "local TS = require(game.ReplicatedStorage:WaitChild("include"):WaitChild("RuntimeLib"))
-local value = TS.import(script, game.ReplicatedStorage, "common").value
+  "shared": "local TS = require(game.Hidden:WaitChild("include"):WaitChild("RuntimeLib"))
+local value = TS.import(script, game.Hidden, "common").value
 local function answer()
 	return value + 1
 end

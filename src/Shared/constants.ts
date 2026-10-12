@@ -12,7 +12,6 @@ export const NODE_MODULES = "node_modules";
 export const RBXTS_SCOPE = "@polytoria-ts";
 export const RBXTS_SCOPE_LEGACY = "@rbxts";
 
-
 export const TS_EXT = ".ts";
 export const TSX_EXT = ".tsx";
 export const D_EXT = ".d";

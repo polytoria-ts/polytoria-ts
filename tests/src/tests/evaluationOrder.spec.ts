@@ -1077,7 +1077,7 @@ export = () => {
 			if (typeIs(value, "number")) {
 				return `n${value}`;
 			}
-			return typeOf(value);
+			return typeOf(value) as string;
 		}
 		const arr = [1, 2, 3];
 		const values = [describe(5), describe("x"), arr.pop()!];

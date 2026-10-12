@@ -52,7 +52,7 @@ it("watches a selected config with a custom filename inside a mapped directory",
 		await watch.edit(() => {
 			const config = fs.readJsonSync(fixture.file("default.project.json"));
 			for (const name of ["include", "shared", "game", "extra"]) {
-				config.tree.ReplicatedStorage[name].$path = `../${config.tree.ReplicatedStorage[name].$path}`;
+				config.tree.Hidden[name].$path = `../${config.tree.Hidden[name].$path}`;
 			}
 			fixture.json("rojo/custom.json", config);
 		});
@@ -104,9 +104,9 @@ it.each([false, true])("recovers when a newly selected child Rojo file is create
 
 		await watch.edit(() => {
 			const config = fs.readJsonSync(fixture.file("default.project.json"));
-			config.tree.ReplicatedStorage.include.$path = "../../include";
-			config.tree.ReplicatedStorage.shared.$path = "../../out/shared";
-			config.tree.ReplicatedStorage.game.$path = "../../out/game";
+			config.tree.Hidden.include.$path = "../../include";
+			config.tree.Hidden.shared.$path = "../../out/shared";
+			config.tree.Hidden.game.$path = "../../out/game";
 			fixture.json("new-owner/nested/owner.json", config);
 		});
 		expect(watch.log.slice(watch.log.lastIndexOf("Found "))).toContain("Found 0 errors");

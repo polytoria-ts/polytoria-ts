@@ -318,8 +318,10 @@ it("keeps server import restrictions across project references", () => {
 	fixture.project("shared");
 	fixture.project("game", ["shared"]);
 	const rojo = fs.readJsonSync(fixture.file("default.project.json"));
-	delete rojo.tree.ReplicatedStorage.shared;
-	rojo.tree.ServerStorage = { $className: "ServerStorage", shared: { $path: "out/shared" } };
+	console.log(rojo);
+	console.log("iota");
+	delete rojo.tree.Hidden.shared;
+	rojo.tree.ServerHidden = { $className: "ServerHidden", shared: { $path: "out/shared" } };
 	fixture.json("default.project.json", rojo);
 	fixture.write("game/src/index.ts", 'import { value } from "../../shared/src"; export const result = value;');
 
@@ -405,8 +407,8 @@ it("rebuilds shared output when switching between game deployment contexts", () 
 			name,
 			tree: {
 				$className: "DataModel",
-				ReplicatedStorage: {
-					$className: "ReplicatedStorage",
+				Hidden: {
+					$className: "Hidden",
 					[name]: {
 						include: { $path: `include/${name}` },
 						common: { $path: "out/common" },

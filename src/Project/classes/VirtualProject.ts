@@ -1,6 +1,6 @@
 import { renderAST } from "@roblox-ts/luau-ast";
 import { PathTranslator } from "@roblox-ts/path-translator";
-import { RojoResolver } from "@roblox-ts/rojo-resolver";
+import { RojoResolver } from "@polytoria-ts/pojo-resolver";
 import { PATH_SEP, pathJoin, VirtualFileSystem } from "Project/classes/VirtualFileSystem";
 import { validateCompilerOptions } from "Project/functions/validateCompilerOptions";
 import { getCustomPreEmitDiagnostics } from "Project/util/getCustomPreEmitDiagnostics";
@@ -91,7 +91,7 @@ export class VirtualProject {
 				$path: INCLUDE_PATH,
 				node_modules: {
 					$className: "Folder",
-					"@rbxts": {
+					"@polytoria-ts": {
 						$path: RBXTS_SCOPE_PATH,
 					},
 				},

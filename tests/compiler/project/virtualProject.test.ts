@@ -8,6 +8,6 @@ it("compiles a virtual project with default options and a compiler header", () =
 	loadTestTypes(project);
 
 	expect(project.compileSource("export const value = 1;")).toBe(
-		`-- Compiled with roblox-ts v${COMPILER_VERSION}\nlocal value = 1\nreturn {\n\tvalue = value,\n}\n`,
+		`-- Compiled with polytoria-ts v${COMPILER_VERSION}\nlocal value = 1\nreturn {\n\tvalue = value,\n}\n`,
 	);
 });

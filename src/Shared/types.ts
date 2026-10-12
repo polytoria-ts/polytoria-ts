@@ -1,4 +1,4 @@
-import { RojoResolver } from "@roblox-ts/rojo-resolver";
+import { RojoResolver } from "@polytoria-ts/pojo-resolver";
 import { ProjectType } from "Shared/constants";
 import ts from "typescript";
 

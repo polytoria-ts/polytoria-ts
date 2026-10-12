@@ -2,8 +2,8 @@
 
 exports[`builds nested lib/spec solutions with independent game runtimes 1`] = `
 {
-  "first/out-test/main.server.luau": "local TS = require(game.ReplicatedStorage:WaitChild("runtime"):WaitChild("RuntimeLib"))
-local answer = TS.import(script, game.ReplicatedStorage, "first").answer
+  "first/out-test/main.server.luau": "local TS = require(game.Hidden:WaitChild("runtime"):WaitChild("RuntimeLib"))
+local answer = TS.import(script, game.Hidden, "first").answer
 assert(answer == 42)
 print("first passed")
 ",
@@ -14,8 +14,8 @@ return {
 	answer = answer,
 }
 ",
-  "second/out-test/main.server.luau": "local TS = require(game.ReplicatedStorage:WaitChild("runtime"):WaitChild("RuntimeLib"))
-local answer = TS.import(script, game.ReplicatedStorage, "relocated").answer
+  "second/out-test/main.server.luau": "local TS = require(game.Hidden:WaitChild("runtime"):WaitChild("RuntimeLib"))
+local answer = TS.import(script, game.Hidden, "relocated").answer
 assert(answer == 42)
 print("second passed")
 ",

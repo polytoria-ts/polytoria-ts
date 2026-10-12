@@ -1,8 +1,6 @@
-import { execFileSync } from "child_process";
 import fs from "fs-extra";
 import path from "path";
 import { ProjectBuild } from "Project/classes/ProjectBuild";
-import { PACKAGE_ROOT } from "Shared/constants";
 import ts from "typescript";
 
 import { expectSuccess, ReferenceFixture, startWatch } from "./referenceFixture";

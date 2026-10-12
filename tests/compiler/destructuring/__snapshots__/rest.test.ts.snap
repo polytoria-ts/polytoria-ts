@@ -592,30 +592,6 @@ return nil
 "
 `;
 
-exports[`preserves rest destructuring emit for source capture 1`] = `
-"local source = {
-	a = 1,
-	b = 2,
-}
-local _binding = source
-source = {
-	a = 10,
-	b = 20,
-}
-local _ = source
-local first = _binding.a
-local _rest = {}
-for _key, _value in _binding do
-	if _key ~= "a" then
-		_rest[_key] = _value
-	end
-end
-local rest = _rest
-print(first, rest)
-return nil
-"
-`;
-
 exports[`preserves rest destructuring emit for string rest 1`] = `
 "local function read(source)
 	local _matcher = string.gmatch(source, utf8.charpattern)

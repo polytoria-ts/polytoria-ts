@@ -1,5 +1,5 @@
 import luau from "@roblox-ts/luau-ast";
-import { RbxType } from "@roblox-ts/rojo-resolver";
+import { RbxType } from "@polytoria-ts/pojo-resolver";
 import { COMPILER_VERSION } from "Shared/constants";
 import { assert } from "Shared/util/assert";
 import { TransformState } from "TSTransformer";
@@ -238,7 +238,7 @@ export function transformSourceFile(state: TransformState, node: ts.SourceFile) 
 
 	// add build information to the tree
 	if (!state.data.projectOptions.noCompilerHeader) {
-		luau.list.push(headerStatements, luau.comment(` Compiled with roblox-ts v${COMPILER_VERSION}`));
+		luau.list.push(headerStatements, luau.comment(` Compiled with polytoria-ts v${COMPILER_VERSION}`));
 	}
 
 	// add the Runtime library to the tree if it is used

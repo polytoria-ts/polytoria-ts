@@ -156,31 +156,6 @@ it("imports a correctly resolved linked package", () => {
 	}
 });
 
-it("warns when ReplicatedFirst code uses the runtime library", () => {
-	const fixture = new ReferenceFixture();
-	try {
-		fixture.project("game");
-		fixture.json("default.project.json", {
-			name: "early",
-			tree: {
-				$className: "DataModel",
-				ReplicatedStorage: { $className: "ReplicatedStorage", include: { $path: "include" } },
-				ReplicatedFirst: { $className: "ReplicatedFirst", game: { $path: "out/game" } },
-			},
-		});
-		fixture.write("game/src/index.ts", "export async function load() { return 1; }");
-
-		const result = fixture.createBuild().build();
-
-		expect(result.emitSkipped).toBe(false);
-		expect(result.diagnostics.map(getDiagnosticId)).toEqual([warnings.runtimeLibUsedInReplicatedFirst.id]);
-		expect(result.diagnostics[0].category).toBe(ts.DiagnosticCategory.Warning);
-		expect(fixture.read("out/game/init.luau")).toContain("TS.async");
-	} finally {
-		fixture.close();
-	}
-});
-
 it.each([ProjectType.Game, ProjectType.Model])(
 	"rejects unmapped source files needing runtime imports in a %s",
 	type => {

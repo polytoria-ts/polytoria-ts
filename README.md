@@ -10,7 +10,7 @@
 	- Instance:GetFirstChild, Instance:FindFirstChild have been swapped for their Polytoria equivalents
 	- ServiceProvider:GetService has been swapped for a regular index operation
 - Types
-	- [@polytoria-ts/types](https://github.com/pine-forest-dweller/polyts-types) ([npm](https://www.npmjs.com/package/@polytoria-ts/types) )has been introduced to parse [Polytoria/Docs-v2](https://github.com/Polytoria/Docs-v2) and generate type/enum definitions
+	- [@polytoria-ts/types](https://github.com/pine-forest-dweller/polyts-types) ([npm](https://www.npmjs.com/package/@polytoria-ts/types)) has been introduced to parse [Polytoria/Docs-v2](https://github.com/Polytoria/Docs-v2) and generate type/enum definitions
 - Runtime
 	- The use of the `_G` global table has been replaced by `world.Shared`, since `_G` is readonly in Polytoria
 - Projects

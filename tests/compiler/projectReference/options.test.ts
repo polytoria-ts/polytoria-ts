@@ -99,8 +99,8 @@ it("rejects incompatible consumer mounts for an owned Rojo context", () => {
 	config.rbxts = { rojo: "../owner.project.json" };
 	fixture.json("shared/tsconfig.json", config);
 	const rojo = fs.readJsonSync(fixture.file("default.project.json"));
-	rojo.tree.ReplicatedStorage.shared = { $path: "elsewhere" };
-	rojo.tree.ReplicatedStorage.moved = { $path: "out/shared" };
+	rojo.tree.Hidden.shared = { $path: "elsewhere" };
+	rojo.tree.Hidden.moved = { $path: "out/shared" };
 	fixture.json("default.project.json", rojo);
 
 	expect(() => fixture.createBuild()).toThrow("same Roblox path");
@@ -199,7 +199,7 @@ it("preserves empty inherited paths for default discovery", () => {
 	const config = fs.readJsonSync(fixture.file("game/tsconfig.json"));
 	fixture.json("game/tsconfig.json", { ...config, rbxts: { rojo: "", includePath: "" } });
 	const rojo = fs.readJsonSync(fixture.file("default.project.json"));
-	rojo.tree.ReplicatedStorage.game.$path = "../out/game";
+	rojo.tree.Hidden.game.$path = "../out/game";
 	fixture.json("game/default.project.json", rojo);
 	const build = fixture.createBuild({ rojo: undefined, includePath: undefined });
 
@@ -212,7 +212,7 @@ it("reports an unmapped module in a reference's owned Rojo context", () => {
 	fixture.project("shared");
 	fixture.project("game", ["shared"]);
 	const owner = fs.readJsonSync(fixture.file("default.project.json"));
-	delete owner.tree.ReplicatedStorage.shared;
+	delete owner.tree.Hidden.shared;
 	fixture.json("owner.project.json", owner);
 	const config = fs.readJsonSync(fixture.file("shared/tsconfig.json"));
 	fixture.json("shared/tsconfig.json", { ...config, rbxts: { rojo: "../owner.project.json" } });
